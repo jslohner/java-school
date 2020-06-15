@@ -6,7 +6,8 @@ import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.WebRequest;
 
-import java.util.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Component
 public class CustomErrorDetails extends DefaultErrorAttributes {

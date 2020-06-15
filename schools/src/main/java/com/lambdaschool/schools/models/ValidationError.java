@@ -23,8 +23,8 @@ public class ValidationError {
 	@Override
 	public String toString() {
 		return "ValidationError{" +
-			"code='" + code + '\'' +
-			", message='" + message + '\'' +
-			'}';
+				   "code='" + code + '\'' +
+				   ", message='" + message + '\'' +
+				   '}';
 	}
 }
