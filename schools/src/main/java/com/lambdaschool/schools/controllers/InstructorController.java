@@ -18,12 +18,13 @@ public class InstructorController {
 
 	@GetMapping(value = "/instructor/{instructorid}", produces = {"application/json"})
 	public ResponseEntity<?> getInstructorById(@PathVariable long instructorid) {
-		Instructor instructor = instructorService.findInstructorById(instructorid);
-		return new ResponseEntity<>(instructor, HttpStatus.OK);
+		Instructor rtnInstructor = instructorService.findInstructorById(instructorid);
+		return new ResponseEntity<>(rtnInstructor, HttpStatus.OK);
 	}
 
-	// @GetMapping(value = "/instructor/{instructorid}/advice", produces = {"application/json"})
-	// public ResponseEntity<?> getInstructorAdviceById(@PathVariable long instructorid) {
-	//
-	// }
+	@GetMapping(value = "/instructor/{instructorid}/advice", produces = {"application/json"})
+	public ResponseEntity<?> getInstructorAdviceById(@PathVariable long instructorid) {
+		Instructor rtnInstructor = instructorService.addAdvice(instructorid);
+		return new ResponseEntity<>(rtnInstructor, HttpStatus.OK);
+	}
 }

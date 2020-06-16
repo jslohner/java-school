@@ -3,6 +3,7 @@ package com.lambdaschool.schools.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,8 @@ import java.util.List;
 @Entity
 @Table(name = "instructors")
 public class Instructor
-	extends Auditable {
+	extends Auditable
+	implements Serializable {
 	/**
 	 * The primary key (long) of the instructor table
 	 */
@@ -25,6 +27,9 @@ public class Instructor
 	 */
 	@Column(nullable = false)
 	private String name;
+
+	@Transient
+	public AdviceSlip advice;
 
 	/**
 	 * List of courses associated with this instructor. Does not get saved in the database directly.
@@ -86,6 +91,14 @@ public class Instructor
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public AdviceSlip getAdvice() {
+		return advice;
+	}
+
+	public void setAdvice(AdviceSlip advice) {
+		this.advice = advice;
 	}
 
 	/**
